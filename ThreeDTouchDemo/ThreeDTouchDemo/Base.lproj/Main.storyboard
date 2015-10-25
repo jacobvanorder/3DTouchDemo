@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="pac-7C-INZ">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ThreeDTouchDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,79 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZbC-AU-pu3">
+                                <rect key="frame" x="281" y="285" width="39" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Peek!"/>
+                            </button>
+                        </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZbC-AU-pu3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Lgz-VW-PQA"/>
+                            <constraint firstItem="ZbC-AU-pu3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Yv1-pn-KWd"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Lmv-mC-x6t"/>
+                    <connections>
+                        <outlet property="peekButton" destination="ZbC-AU-pu3" id="q3R-Z6-v8I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="487" y="670"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cW7-jo-Np0">
+            <objects>
+                <navigationController id="pac-7C-INZ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0J1-tl-7zI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="fci-h0-M2C"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RnR-UA-GzO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-242" y="670"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="l3Z-yH-iSQ">
+            <objects>
+                <viewController storyboardIdentifier="OhHelloThereViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="p7e-9L-gj7" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nA1-lB-GLE"/>
+                        <viewControllerLayoutGuide type="bottom" id="dbW-Bg-dCg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xQ2-WA-sxs">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="Pet-Peek-Fence-Window-for-Dogs" translatesAutoresizingMaskIntoConstraints="NO" id="Gk7-S1-FaS">
+                                <rect key="frame" x="0.0" y="0.0" width="630" height="600"/>
+                                <animations/>
+                            </imageView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" red="0.24313725529999999" green="0.67058825489999996" blue="0.2941176593" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Gk7-S1-FaS" secondAttribute="trailing" constant="-30" id="Mnt-Yv-JSx"/>
+                            <constraint firstItem="Gk7-S1-FaS" firstAttribute="leading" secondItem="xQ2-WA-sxs" secondAttribute="leading" id="Qmi-RK-uQy"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Gk7-S1-FaS" secondAttribute="bottom" id="o6y-Q6-A0M"/>
+                            <constraint firstAttribute="topMargin" secondItem="Gk7-S1-FaS" secondAttribute="top" id="sJX-j6-9Ot"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2gO-Hr-g0a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1179" y="670"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Pet-Peek-Fence-Window-for-Dogs" width="630" height="600"/>
+    </resources>
 </document>
