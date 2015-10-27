@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -22,6 +23,12 @@
                                 <rect key="frame" x="281" y="285" width="39" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Peek!"/>
+                                <connections>
+                                    <segue destination="p7e-9L-gj7" kind="show" identifier="PushDogSegue" id="ARQ-Ph-pp1">
+                                        <segue key="commit" destination="p7e-9L-gj7" kind="show" identifier="PushDogSegueCommit" id="LuX-rk-xdW"/>
+                                        <segue key="preview" destination="p7e-9L-gj7" identifier="PushDogSeguePeek" id="sc1-Ph-DhQ"/>
+                                    </segue>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>
@@ -92,4 +99,7 @@
     <resources>
         <image name="Pet-Peek-Fence-Window-for-Dogs" width="630" height="600"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ARQ-Ph-pp1"/>
+    </inferredMetricsTieBreakers>
 </document>

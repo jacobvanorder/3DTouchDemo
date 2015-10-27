@@ -8,52 +8,35 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIViewControllerPreviewingDelegate {
+class ViewController: UIViewController {
     
     @IBOutlet var peekButton: UIButton!
     
-    //MARK: - A: Peek/Pop -
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        guard let identifier = segue.identifier else { return }
         
-        //MARK: A1: register as delegate
-        if traitCollection.forceTouchCapability == .Available {
-            registerForPreviewingWithDelegate(self, sourceView: peekButton)
-        }
-        else {
-            peekButton.addTarget(self, action: "pushDogViewController:", forControlEvents: .TouchUpInside)
-        }
-    }
-    
-    //MARK: UIViewControllerPreviewingDelegate
-    
-    //MARK: A2 View Controller for peeking
-    internal func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        //If you wanted to do this off of a Table View, you'd use:
-//        guard let indexPath = tableView.indexPathForRowAtPoint(location),
-//            cell = tableView.cellForRowAtIndexPath(indexPath) else {
-//                return nil
-//        }
+        let backgroundColor: UIColor
         
-        guard let dogFaceController = storyboard?.instantiateViewControllerWithIdentifier("OhHelloThereViewController") else {
-            return nil
+        switch identifier {
+        case "PushDogSegue":
+            NSLog("Woof! :\(identifier)")
+            backgroundColor = .whiteColor()
+            break
+        case "PushDogSeguePeek":
+            NSLog("Woof! :\(identifier)")
+            backgroundColor = .redColor()
+            break
+        case "PushDogSegueCommit":
+            NSLog("Woof! :\(identifier)")
+            backgroundColor = .greenColor()
+            break
+        default:
+            NSLog("Woof! :\(identifier)")
+            backgroundColor = .blackColor()
+            break
         }
-        dogFaceController.view.backgroundColor = .redColor()
-        return dogFaceController
-    }
-    
-    //MARK: A2 View Controller for popping
-    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
-        viewControllerToCommit.view.backgroundColor = .greenColor()
-        navigationController?.pushViewController(viewControllerToCommit, animated: true)
-    }
-    
-    func pushDogViewController(sender: UIButton) {
-        guard let dogFaceController = storyboard?.instantiateViewControllerWithIdentifier("OhHelloThereViewController") else {
-            return
-        }
-        self.navigationController?.pushViewController(dogFaceController, animated: true)
+        
+        segue.destinationViewController.view.backgroundColor = backgroundColor
     }
 }
 
